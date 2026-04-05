@@ -1,0 +1,19 @@
+{
+  "name": "compiladorts",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "bun run src/cli/main.ts",
+    "check": "bun run src/cli/main.ts",
+    "tokens": "bun run src/cli/main.ts --tokens",
+    "ast": "bun run src/cli/main.ts --ast",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
