@@ -232,7 +232,7 @@ export class IRGenerator {
   private lowerBindingName(name: BindingName): IRBindingName {
     switch (name.kind) {
       case NodeKind.Identifier:
-        return { kind: IRKind.Identifier, name: name.name };
+        return name.name;
       case NodeKind.ObjectBindingPattern:
         return this.lowerObjectBindingPattern(name as ObjectBindingPattern);
       case NodeKind.ArrayBindingPattern:
@@ -363,7 +363,7 @@ export class IRGenerator {
     return {
       kind: IRKind.VariableDecl,
       declKind: "const",
-      bindings: [{ name: { kind: IRKind.Identifier, name: node.name.name }, init: objExpr }],
+      bindings: [{ name: node.name.name, init: objExpr }],
     };
   }
 

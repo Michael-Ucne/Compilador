@@ -336,9 +336,8 @@ export class CodeGenerator {
   }
 
   private emitBindingName(node: IRBindingName): string {
+    if (typeof node === "string") return node;
     switch (node.kind) {
-      case IRKind.Identifier:
-        return node.name;
       case IRKind.ObjectBindingPattern:
         if (node.elements.length === 0) return "{}";
         return `{${this.sp}${node.elements.map(elem => this.emitBindingElement(elem)).join(`,${this.sp}`)}${this.sp}}`;

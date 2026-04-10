@@ -62,7 +62,7 @@ export interface IRFunctionDecl extends IRNode {
   readonly isAsync: boolean;
 }
 
-export type IRBindingName = IRIdentifier | IRObjectBindingPattern | IRArrayBindingPattern;
+export type IRBindingName = string | IRObjectBindingPattern | IRArrayBindingPattern;
 
 export interface IRParam {
   readonly name: IRBindingName;

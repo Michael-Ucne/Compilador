@@ -118,8 +118,8 @@ export class Optimizer {
   private optimizeVariableDecl(node: IRVariableDecl, constants: ConstantMap): IRVariableDecl {
     const bindings: IRBinding[] = node.bindings.map(b => {
       const init = b.init ? this.optimizeExpression(b.init, constants) : null;
-      if (node.declKind === "const" && b.name.kind === IRKind.Identifier && init?.kind === IRKind.Literal) {
-        constants.set(b.name.name, init);
+      if (node.declKind === "const" && typeof b.name === "string" && init?.kind === IRKind.Literal) {
+        constants.set(b.name, init);
       }
       return { name: b.name, init };
     });
